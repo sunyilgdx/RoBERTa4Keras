@@ -10,3 +10,6 @@
 - 传入custom position id, 将position id设置为[2, max_length]
 - 抛弃segment embeddings, 将segment_vocab_size=0
 - 将fairseq的pytorch RoBERTa转为google原版的BERT
+
+## 使用例子
+简单写了一个文本分类的代码，可以直接运行[cls_classification_roberta.py](https://github.com/sunyilgdx/RoBERTa4Keras/blob/main/cls_classification_roberta.py)，也可以使用[run_cls_roberta.sh](https://github.com/sunyilgdx/RoBERTa4Keras/blob/main/run_cls_roberta.sh)(可能需要修改相对路径)
