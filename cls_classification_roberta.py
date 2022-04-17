@@ -63,7 +63,7 @@ class Evaluator(keras.callbacks.Callback):
             if val_acc >= self.best_val_acc:
                 test_acc = evaluate(test_generator, test_data, note="Test Set")
                 self.best_val_acc = val_acc
-                # nsp_encoder.save_weights('cls_encoder.weights')
+                # cls_encoder.save_weights('cls_encoder.weights')
                 self.final_test_acc = test_acc
                 print("Val metric: {:.4f}, test metric: {:.4f}".format(val_acc, test_acc))
             else:
@@ -74,7 +74,7 @@ class Evaluator(keras.callbacks.Callback):
 
 
 def evaluate(data_generator, data, note=""):
-    print("*******************Start to Few-Shot predict on 【{}】*******************".format(note))
+    print("*******************Start to predict on 【{}】*******************".format(note))
     preds = []
     logits = []
     counter = 0
