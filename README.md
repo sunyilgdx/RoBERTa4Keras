@@ -5,6 +5,9 @@
 - [keras_roberta](https://github.com/midori1/keras_roberta)的转换方法 (由fairseq版的RoBERETa pytorch转为原版BERT Tensorflow)
 - [RobertaTokenizer](https://github.com/clearwho/RobertaTokenizer)的分词方法
 
+## 优点
+得益于bert4keras的可扩展性，完全不需要修改bert4keras的框架，仅需要调用BERT类和更改tokenizer即可实现在bert4keras框架使用英文原版RoBERTa
+
 
 ## 核心思路
 - 使用英文RoBERTa、GPT2、BART等模型的bpe分词
