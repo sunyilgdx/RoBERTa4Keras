@@ -8,7 +8,7 @@
 
 ## 核心思路
 - 使用英文RoBERTa、GPT2、BART等模型的bpe分词
-- 传入custom position id, 将position id设置为 \[2, max_length\]
+- 传入custom position id, 将position id设置为 `[2, max_length]`
 - 抛弃segment embeddings, 将segment_vocab_size=0
 - 将**fairseq**的pytorch RoBERTa转为google原版的BERT
 
@@ -28,7 +28,7 @@
     tokenizer = RobertaTokenizer(vocab_file=vocab_file, merges_file=merges_file)
     ```
   - 使用bert4keras的框架中的BERT模型加载RoBERTa模型
-  这里需要设置两个关键参数，`custom_position_ids=True`传入自定义position_ids， `segment_vocab_size=0`将segment embeddings维度设置为0
+  这里需要设置两个关键参数，`custom_position_ids=True`传入自定义position_ids， `segment_vocab_size=0`将segment embeddings维度设置为`0`
  
     ```
     bert = build_transformer_model(
@@ -48,7 +48,7 @@
     token_ids, _ = tokenizer.encode(text, maxlen=maxlen)
     ```
   - 位置编码
-    这里需要把位置编码设置为\[2,max_len\]，具体原因需要到fairseq的仓库下查issues，padding使用的是1这个position id(可能也没有影响)
+    这里需要把位置编码设置为`[2,max_len]`，具体原因需要到fairseq的仓库下查issues，padding使用的是`1`这个position id(可能也没有影响)
     
     ```
     custom_position_ids = [2 + i for i in range(len(token_ids))]
