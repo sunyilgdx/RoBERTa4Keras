@@ -21,7 +21,7 @@
 1. 将fairseq原版的pytorch RoBERTa转为tensorflow格式
   - 从[fairseq/RoBERTa](https://github.com/pytorch/fairseq/blob/main/examples/roberta/README.md)下载，[base](https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz)或[large](https://dl.fbaipublicfiles.com/fairseq/models/roberta.large.tar.gz)版的RoBERTa，保存至[RoBERTa4Keras/models](https://github.com/sunyilgdx/RoBERTa4Keras/tree/main/models)下.
   - 使用[convert_fairseq_roberta_to_tf.py](https://github.com/sunyilgdx/RoBERTa4Keras/blob/main/convert_fairseq_roberta_to_tf.py)将其转换为tensorflow格式，同样保存在[RoBERTa4Keras/models]()下
-  - 此时，`models/roberta_large_fairseq_tf`下有四类文件，分别是`bert_config.json` `merges.txt` `vocab.json`和`roberta_large.ckpt.data/index/meta`三个文件
+  - 此时，`models/roberta_large_fairseq_tf`下有四类文件，分别是`bert_config.json` `merges.txt` `vocab.json`和`roberta_large.ckpt.data|index|meta`三个文件
 2. 基于[CLS]位置的fine-tuning关键步骤
   - 加载bpe分词器
   
