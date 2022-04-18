@@ -21,6 +21,7 @@
   - 此时，`models/roberta_large_fairseq_tf`下有四类文件，分别是`bert_config.json` `merges.txt` `vocab.json`和`roberta_large.ckpt.data/index/meta`三个文件
 2. 基于[CLS]位置的fine-tuning关键步骤
   - 加载bpe分词器
+  
     ```
     merges_file = r'./models/roberta_large_fairseq_tf/merges.txt'
     vocab_file = r'./models/roberta_large_fairseq_tf/vocab.json'
@@ -28,6 +29,7 @@
     ```
   - 使用bert4keras的框架中的BERT模型加载RoBERTa模型
   这里需要设置两个关键参数，`custom_position_ids=True`传入自定义position_ids， `segment_vocab_size=0`将segment embeddings维度设置为0
+ 
     ```
     bert = build_transformer_model(
           config_path,
@@ -41,11 +43,13 @@
     ```
   - 分词和token编码
     这里会调用`bpe_tokenization.py`中的分词模型，将会把输入的文本编码为`<s> X </s>`这种形式
+    
     ```
     token_ids, _ = tokenizer.encode(text, maxlen=maxlen)
     ```
   - 位置编码
     这里需要把位置编码设置为\[2,max_len\]，具体原因需要到fairseq的仓库下查issues，padding使用的是1这个position id(可能也没有影响)
+    
     ```
     custom_position_ids = [2 + i for i in range(len(token_ids))]
     batch_custom_position_ids = sequence_padding(batch_custom_position_ids, value=1)
